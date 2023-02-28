@@ -1,5 +1,9 @@
 #pythonCopy code
+import os
+from dotenv import load_dotenv
 import discord
+
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -9,8 +13,12 @@ client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
     guild = discord.utils.get(client.guilds, name='Piratas do Klan')
-    channel = discord.utils.get(guild.text_channels, name='testebot')
-    await channel.send('O bot está online!')
+    channel1 = discord.utils.get(guild.text_channels, name='testebot')
+
+    guild = discord.utils.get(client.guilds, name='A Cidade dos Robôs')
+    #channel = discord.utils.get(guild.text_channels, name='bot-fest')
+    # channel = discord.utils.get(guild.text_channels, name='bot-training')
+    await channel1.send('O bot está online!')
 
 @client.event
 async def on_message(message):
@@ -31,4 +39,4 @@ async def on_message(message):
         if message.content.lower() == '!oi':
             await message.channel.send('Olá em um canal público!')
 
-client.run('MTA3ODUwODg3NjMxMzQwMzQxMg.GhHY4j.1OpDPHsH5UvViJY7DCw9M-L2GfptPYVEZF-W1g')
+client.run(os.getenv('TOKEN'))
