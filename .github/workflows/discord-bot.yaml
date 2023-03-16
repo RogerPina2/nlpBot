@@ -27,7 +27,7 @@ jobs:
     - name: Load environment variables
       run: |
         echo "Loading environment variables"
-        set -a && . ./.env && set +a
+        set -a && . /home/nlpuser/botNLP/.env && set +a
         echo "DISCORD_TOKEN = $DISCORD_TOKEN"
 
     - name: Run tests
