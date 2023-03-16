@@ -37,8 +37,7 @@ async def on_message(message):
         elif message.content.lower() == '!author':
             await message.channel.send('O nome do autor do bot é: Roger Ribeiro Fava Pina, seu email é: rogerrfp@al.insper.edu.br')
         
-        elif content.split(' ')[0] == 'test':
-            if content[1] == 'cicd':
+        elif message.content.lower() == 'test':
                 await message.channel.send('CICD funcionando!')
 
         elif message.content.lower().split(' ')[0] == '!run':
