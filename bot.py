@@ -48,4 +48,5 @@ async def on_message(message):
         if message.content.lower() == '!oi':
             await message.channel.send('Olá em um canal público!')
 
-client.run(os.getenv('TOKEN'))
+discord_token = os.getenv('DISCORD_TOKEN')
+client.run(discord_token)
