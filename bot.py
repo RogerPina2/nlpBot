@@ -26,6 +26,8 @@ async def on_message(message):
         return
 
     if isinstance(message.channel, discord.DMChannel):
+        content = message.content.lower()
+
         if message.content.lower() == '!oi':
             await message.channel.send('Olá em mensagem privada!')
 
@@ -35,6 +37,10 @@ async def on_message(message):
         elif message.content.lower() == '!author':
             await message.channel.send('O nome do autor do bot é: Roger Ribeiro Fava Pina, seu email é: rogerrfp@al.insper.edu.br')
         
+        elif content.split(' ')[0] == 'test':
+            if content[1] == 'cicd':
+                await message.channel.send('CICD funcionando!')
+
         elif message.content.lower().split(' ')[0] == '!run':
             content = message.content.lower().split(' ')        
 
