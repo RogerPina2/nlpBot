@@ -31,9 +31,9 @@ Quanto ao uso do discord, é uma plataforma com chat que os alunos possuem grand
 1. Clone o repositório
 - `git clone https://github.com/RogerPina2/botNLP.git`
 
-3. Tokens de acesso
-4.1 Crie um arquivo `.env` na raiz do projeto 
-5.2 Adicione ao arquivo criado os tokens de acesso do `discord` e da api `thecatapi`. 
+2. Tokens de acesso
+2.1 Crie um arquivo `.env` na raiz do projeto 
+2.2 Adicione ao arquivo criado os tokens de acesso do `discord` e da api `thecatapi`. 
 
 Deve ficar assim:
 ```
