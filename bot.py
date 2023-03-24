@@ -1,7 +1,11 @@
 #pythonCopy code
 import os
-from dotenv import load_dotenv
+
 import discord
+from dotenv import load_dotenv
+
+from data.messages import *
+from api.catAPI.images import get_random_image
 
 load_dotenv()
 
@@ -29,7 +33,9 @@ async def on_message(message):
         content = message.content.lower()
 
         if message.content.lower() == '!oi':
-            await message.channel.send('Olá em mensagem privada!')
+            user = message.author
+            user = user.name.split('#')[0]
+            await message.channel.send(f'Olá {user}! ')
 
         elif message.content.lower() == '!source':
             await message.channel.send('Este é o link do repositório do chatBot: https://github.com/RogerPina2/botNLP')
@@ -37,13 +43,36 @@ async def on_message(message):
         elif message.content.lower() == '!author':
             await message.channel.send('O nome do autor do bot é: Roger Ribeiro Fava Pina, seu email é: rogerrfp@al.insper.edu.br')
         
-        elif message.content.lower() == '!test':
-                await message.channel.send('CICD funcionando!')
-
-        elif message.content.lower().split(' ')[0] == '!run':
-            content = message.content.lower().split(' ')        
-
+        elif message.content.startswith('!help'):
+            message_words = message.content.split(' ')
             
+            if len(message_words) == 1:
+                await message.channel.send(help_message)    
+
+            elif len(message_words) == 2 and message_words[1] == 'oi':
+                await message.channel.send('!oi : Retorna uma saudação do bot.')
+
+            elif len(message_words) == 2 and message_words[1] == 'source':
+                await message.channel.send('!source : Retorna o link do repositório do bot.')
+            
+            elif len(message_words) == 2 and message_words[1] == 'author':
+                await message.channel.send('!author: Retorna o nome do criador do bot.')
+
+            elif len(message_words) == 2 and message_words[1] == 'run':
+                await message.channel.send('!run <pet>: Retorna uma imagem aleatória do pet. Pet pode ser "dog" ou "cat"')
+
+        elif message.content.startswith('!run'):
+            message_words = message.content.split(' ')
+            
+            if len(message_words) == 1:
+                await message.channel.send(run_missing_argument)    
+
+            elif len(message_words) == 2 and message_words[1] == 'cat':
+                await message.channel.send(get_random_image(pet='cat')[0]['url'])
+
+            elif len(message_words) == 2 and message_words[1] == 'dog':
+                await message.channel.send(get_random_image(pet='dog')[0]['url'])
+
     else:
         if message.content.lower() == '!oi':
             await message.channel.send('Olá em um canal público!')
