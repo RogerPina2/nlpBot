@@ -24,7 +24,7 @@ Um resumo feito pelo próprio chatGPT:
 
 A conversa inteira pode ser lida [aqui](chat_with_chatGPT.md)
 
-Quanto ao discord, é uma ferramenta com chat que os alunos possuem grande proximidade além de que possuir uma estrutura fácil de ser substituída para utilizar o bot em outras plataformas.  
+Quanto ao uso do discord, é uma plataforma com chat que os alunos possuem grande proximidade e possui uma estrutura fácil de ser substituída para utilizar o bot em outras plataformas como o Twitter.  
 
 ## Como rodar
 
