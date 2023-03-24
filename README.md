@@ -42,9 +42,11 @@ API_KEY=api_key_do_ipgeolocation
 ```
 
 3. Instale as bibliotecas utilizadas pelo projeto
+ 
 `pip install -r requirements.txt`
 
 4. Na raiz do projeto, inicie o **BOT**
+
 `python3 bot.py`
 
 ## Ensaios
