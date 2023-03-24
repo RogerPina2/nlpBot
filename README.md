@@ -5,7 +5,7 @@ Autor: Roger Pina
 ## Introdução
 Esse repositório contém minha APS (atividade prática supervisionada) da matéria NLP (Natural Language Processing) que consiste na construção de um chatBot para discord utilizando processamento de linguagem natural. 
 
-### A APS
+## A APS
 
 A APS foi dividida em partes, cada uma com rúbrica/avaliação e entregas definidas. 
 - Parte 0: Um chatbot para o Discord.
@@ -17,7 +17,7 @@ A APS foi dividida em partes, cada uma com rúbrica/avaliação e entregas defin
 
 O arquivo completo com as avaliações e entregas de cada parte pode ser encontrado no [aqui](https://github.com/tiagoft/NLP/blob/main/APS.md)
 
-### Por que um chatBot usando NLP e porque para o discord?
+## Por que um chatBot usando NLP e porque para o discord?
 Um resumo feito pelo próprio chatGPT:
 
 - Criar um chatbot com NLP (Natural Language Processing) pode melhorar a experiência do usuário em diversos setores, oferecendo atendimento ao cliente personalizado e eficiente, além de automatizar tarefas repetitivas. Além disso, chatbots com NLP podem coletar dados e insights valiosos sobre o comportamento do usuário, mas requerem conhecimento técnico especializado em inteligência artificial, linguística e desenvolvimento de software.
