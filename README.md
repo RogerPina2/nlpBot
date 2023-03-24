@@ -29,7 +29,7 @@ Quanto ao discord, é uma ferramenta com chat que os alunos possuem grande proxi
 ## Como rodar
 
 1. Clone o repositório
-- git clone https://github.com/RogerPina2/botNLP.git
+- `git clone https://github.com/RogerPina2/botNLP.git`
 
 3. Tokens de acesso
 4.1 Crie um arquivo `.env` na raiz do projeto 
@@ -42,12 +42,10 @@ API_KEY=api_key_do_ipgeolocation
 ```
 
 3. Instale as bibliotecas utilizadas pelo projeto
- 
-`pip install -r requirements.txt`
+- `pip install -r requirements.txt`
 
 4. Na raiz do projeto, inicie o **BOT**
-
-`python3 bot.py`
+- `python3 bot.py`
 
 ## Ensaios
 
