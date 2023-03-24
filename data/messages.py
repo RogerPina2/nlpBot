@@ -5,14 +5,17 @@ Command list:
 - !author
 - !run 
 
-To get more info on a command
 Para mais informações de um comando, execute !help nome_do_comando
 """
 
 run_missing_argument = """
-:xtick: Falta argumento
+:x: Falta argumento
 
 O argumento da consulta é necessário.
 
 Uso: !run <dog|cat>
+"""
+
+run_wrong_param = """
+O parâmetro passado não foi aceito, tente passar um parâmetro possível. Ex.: [dog, cat]
 """

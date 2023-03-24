@@ -1,5 +1,6 @@
 #pythonCopy code
 import os
+import re
 
 import discord
 from dotenv import load_dotenv
@@ -21,7 +22,7 @@ async def on_ready():
 
     guild = discord.utils.get(client.guilds, name='A Cidade dos Robôs')
     #channel = discord.utils.get(guild.text_channels, name='bot-fest')
-    # channel = discord.utils.get(guild.text_channels, name='bot-training')
+    #channel = discord.utils.get(guild.text_channels, name='bot-training')
     await channel1.send('O bot está online!')
 
 @client.event
@@ -56,23 +57,31 @@ async def on_message(message):
                 await message.channel.send('!source : Retorna o link do repositório do bot.')
             
             elif len(message_words) == 2 and message_words[1] == 'author':
-                await message.channel.send('!author: Retorna o nome do criador do bot.')
+                await message.channel.send('!author : Retorna o nome do criador do bot.')
 
             elif len(message_words) == 2 and message_words[1] == 'run':
-                await message.channel.send('!run <pet>: Retorna uma imagem aleatória do pet. Pet pode ser "dog" ou "cat"')
+                await message.channel.send('!run <pet> : Retorna uma imagem aleatória do pet. Pet pode ser "dog" ou "cat"')
 
         elif message.content.startswith('!run'):
             message_words = message.content.split(' ')
             
             if len(message_words) == 1:
-                await message.channel.send(run_missing_argument)    
+                await message.channel.send(run_missing_argument) 
+            
+            elif len(message_words) == 2:
+                param = message_words[1]
+                padrao = r'^(dog|cat)$'
+                result = re.match(padrao, param)
 
-            elif len(message_words) == 2 and message_words[1] == 'cat':
-                await message.channel.send(get_random_image(pet='cat')[0]['url'])
+                if result and param == 'cat':
+                    await message.channel.send(get_random_image(pet='cat')[0]['url'])
+                elif result and param == 'dog':
+                    await message.channel.send(get_random_image(pet='dog')[0]['url'])
+                else:
+                    await message.channel.send(run_wrong_param)
 
-            elif len(message_words) == 2 and message_words[1] == 'dog':
-                await message.channel.send(get_random_image(pet='dog')[0]['url'])
-
+            else:
+                await message.channel.send('Essa função aceita apenas um parâmetro')
     else:
         if message.content.lower() == '!oi':
             await message.channel.send('Olá em um canal público!')
