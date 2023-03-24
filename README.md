@@ -50,9 +50,9 @@ API_KEY=api_key_do_ipgeolocation
 ## Ensaios
 
 Em cada ensaio explico como foi o processo de fazer o chatbot entre as entregas da APS;
--[Ensaio 0](ensaios/ensaio_0.md)
--[Ensaio_1](ensaios/ensaio_1.md)
--[Ensaio_2](ensaios/ensaio_2.md)
--[Ensaio_3](ensaios/ensaio_3.md)
--[Ensaio_4](ensaios/ensaio_4.md)
--[Ensaio_5](ensaios/ensaio_5.md)
+- [Ensaio 0](ensaios/ensaio_0.md)
+- [Ensaio_1](ensaios/ensaio_1.md)
+- [Ensaio_2](ensaios/ensaio_2.md)
+- [Ensaio_3](ensaios/ensaio_3.md)
+- [Ensaio_4](ensaios/ensaio_4.md)
+- [Ensaio_5](ensaios/ensaio_5.md)
