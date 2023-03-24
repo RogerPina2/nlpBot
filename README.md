@@ -6,6 +6,7 @@ Autor: Roger Pina
 Esse repositório contém minha APS (atividade prática supervisionada) da matéria NLP (Natural Language Processing) que consiste na construção de um chatBot para discord utilizando processamento de linguagem natural. 
 
 ### A APS
+
 A APS foi dividida em partes, cada uma com rúbrica/avaliação e entregas definidas. 
 - Parte 0: Um chatbot para o Discord.
 - Parte 1: Chatbot faz pequenos queries em um serviço externo como mapa, clima, bolsa de valores, etc.
@@ -26,6 +27,7 @@ A conversa inteira pode ser lida [aqui](chat_with_chatGPT.md)
 Quanto ao discord, é uma ferramenta com chat que os alunos possuem grande proximidade além de que possuir uma estrutura fácil de ser substituída para utilizar o bot em outras plataformas.  
 
 ## Como rodar
+
 1. Clone o repositório
 - git clone https://github.com/RogerPina2/botNLP.git
 
@@ -46,6 +48,7 @@ API_KEY=api_key_do_ipgeolocation
 - python3 bot.py 
 
 ## Ensaios
+
 Em cada ensaio explico como foi o processo de fazer o chatbot entre as entregas da APS;
 [Ensaio 0](ensaios/ensaio_0.md)
 [Ensaio_1](ensaios/ensaio_1.md)
