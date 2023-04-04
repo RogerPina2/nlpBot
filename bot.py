@@ -62,6 +62,7 @@ async def on_message(message):
             elif len(message_words) == 2 and message_words[1] == 'run':
                 await message.channel.send('!run <pet> : Retorna uma imagem aleatória do pet. Pet pode ser "dog" ou "cat"')
 
+        # Run
         elif message.content.startswith('!run'):
             message_words = message.content.split(' ')
             
@@ -70,8 +71,8 @@ async def on_message(message):
             
             elif len(message_words) == 2:
                 param = message_words[1]
-                padrao = r'^(dog|cat)$'
-                result = re.match(padrao, param)
+                regex_pet = r'^(dog|cat)$'
+                result = re.match(regex_pet, param)
 
                 if result and param == 'cat':
                     await message.channel.send(get_random_image(pet='cat')[0]['url'])
@@ -82,6 +83,65 @@ async def on_message(message):
 
             else:
                 await message.channel.send('Essa função aceita apenas um parâmetro')
+
+        # Crawl
+        elif message.content.startswith('!crawl'):
+            message_words = message.content.split(' ')
+            
+            if len(message_words) == 1:
+                await message.channel.send(run_missing_argument) 
+            
+            elif len(message_words) == 2:
+                param = message_words[1]
+                regex_url = r"(https?://[^\s]+)"
+                result = re.match(regex_url, param)
+
+                if result:
+                    
+                    await message.channel.send(result) 
+                else:
+                    await message.channel.send(run_wrong_param)
+                
+            else:
+                await message.channel.send('Essa função aceita apenas um parâmetro')
+
+        # Search
+        elif message.content.startswith('!search'):
+            message_words = message.content.split(' ')
+            
+            if len(message_words) == 1:
+                await message.channel.send(run_missing_argument) 
+            
+            elif len(message_words) == 2:
+                # param = message_words[1]
+                # regex_url = r"(https?://[^\s]+)"
+                # result = re.match(regex_url, param)
+
+                #em que o usuário busca por um termo ou conceito. 
+                # A resposta deve ser buscada usando um índice invertido.
+                pass
+            else:
+                await message.channel.send('Essa função aceita apenas um parâmetro')
+
+        # Wn_search
+        elif message.content.startswith('!search'):
+            message_words = message.content.split(' ')
+            
+            if len(message_words) == 1:
+                await message.channel.send(run_missing_argument) 
+            
+            elif len(message_words) == 2:
+                # param = message_words[1]
+                # regex_url = r"(https?://[^\s]+)"
+                # result = re.match(regex_url, param)
+
+                # em que faz uma busca por todos os documentos armazenados, 
+                # usando um índice de semelhança ligado à Wordnet, isto é, 
+                # o sistema pode buscar por termos semelhantes.
+                pass
+            else:
+                await message.channel.send('Essa função aceita apenas um parâmetro')
+
     else:
         if message.content.lower() == '!oi':
             await message.channel.send('Olá em um canal público!')
