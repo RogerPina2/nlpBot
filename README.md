@@ -29,7 +29,10 @@ Quanto ao uso do discord, é uma plataforma com chat que os alunos possuem grand
 ## Como rodar
 
 1. Clone o repositório
-- `git clone https://github.com/RogerPina2/botNLP.git`
+
+  ```
+  git clone https://github.com/RogerPina2/botNLP.git
+  ```
 
 2. Tokens de acesso
 
@@ -37,16 +40,23 @@ Quanto ao uso do discord, é uma plataforma com chat que os alunos possuem grand
 - 2.2 Adicione ao arquivo criado os tokens de acesso do `discord` e da api `thecatapi`. 
 
 Deve ficar assim:
-```
-DISCORD_TOKEN=token_do_bot
-API_KEY=api_key_do_ipgeolocation
-```
+
+  ```
+  DISCORD_TOKEN=token_do_bot
+  API_KEY=api_key_do_ipgeolocation
+  ```
 
 3. Instale as bibliotecas utilizadas pelo projeto
-- `pip install -r requirements.txt`
+
+  ```
+  pip install -r requirements.txt
+  ``` 
 
 4. Na raiz do projeto, inicie o **BOT**
-- `python3 bot.py`
+
+  ```
+  python3 bot.py
+  ``` 
 
 ## Ensaios
 
