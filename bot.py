@@ -4,7 +4,8 @@ import re
 import discord
 from dotenv import load_dotenv
 
-from modules import *
+from modules import crawller
+from modules import searcher
 from modules.variables import *
 from modules.api.catAPI.images import get_random_image
 

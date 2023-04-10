@@ -1,6 +1,6 @@
 import json
 
-from variables import *
+from .variables import INVERSE_INDEX_DB, DATABASE_PATH
 
 def buscar(palavras, indice):
     assert type(palavras)==list
@@ -37,4 +37,4 @@ def query(query):
     
     return result
 
-print(query('tendão'))
+#print(query('tendão'))

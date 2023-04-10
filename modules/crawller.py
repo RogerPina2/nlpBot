@@ -5,8 +5,8 @@ import numpy as np
 from bs4 import BeautifulSoup
 from langdetect import detect
 
-from variables import *
-from functions import create_inverse_index_dictionary
+from .variables import DATABASE_PATH, INVERSE_INDEX_DB
+from .functions import create_inverse_index_dictionary
 
 def add_to_csv(url, text):
 
@@ -35,7 +35,12 @@ def crawl(url, n=20):
                 return (count, 'is_visited')
             continue
         
-        response = requests.get(link)
+        try:
+            response = requests.get(link)
+        except:
+            if not links:
+                return (count, 'get')
+            continue
 
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, 'html.parser')
@@ -45,7 +50,9 @@ def crawl(url, n=20):
             if word_count > 100:
                 lang = detect(text)
                 if lang != 'pt':
-                    return (i, 'lang')
+                    if not links:
+                        return (count, 'lang')
+                    continue
 
                 add_to_csv(url, text)
                 count += 1
@@ -64,5 +71,5 @@ def crawl(url, n=20):
 
     return (count, 'ok')
 
-url = 'https://www.cnnbrasil.com.br/economia/alckmin-vai-presidir-conselhao-da-industria-para-impulsionar-setor/'
-print(crawl(url))
+# url = 'https://www.cnnbrasil.com.br/economia/alckmin-vai-presidir-conselhao-da-industria-para-impulsionar-setor/'
+# print(crawl(url))
