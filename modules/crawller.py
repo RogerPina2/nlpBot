@@ -24,33 +24,45 @@ def is_visited(url):
                 return True
     return False
 
-def crawl(url):
-    if is_visited(url):
-        return
+def crawl(url, n=20):
+    links = [url]
+    count = 0
+    while count < 20:
+        link = links.pop(0)
+        
+        if is_visited(link):
+            if not links:
+                return (count, 'is_visited')
+            continue
+        
+        response = requests.get(link)
 
-    response = requests.get(url)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.content, 'html.parser')
+            text = " ".join([para.get_text() for para in soup.find_all(["p", "h1", "h2", "h3", "h4", "h5", "h6"])])
+            word_count = len(text.split())
 
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.content, 'html.parser')
-        text = " ".join([para.get_text() for para in soup.find_all(["p", "h1", "h2", "h3", "h4", "h5", "h6"])])
-        word_count = len(text.split())
+            if word_count > 100:
+                lang = detect(text)
+                if lang != 'pt':
+                    return (i, 'lang')
 
-        if word_count > 100:
-
-            lang = detect(text)
-            if lang != 'pt':
-                return
-
-            add_to_csv(url, text)
-
-            links = soup.find_all('a')
-            for link in links:
-                href = link.get('href')
-                if href is not None and href.startswith('http'):
-                    crawl(href)
-
-            return links
+                add_to_csv(url, text)
+                count += 1
+                    
+                links += [l.get('href') for l in soup.find_all('a') if l.get('href') is not None and l.get('href').startswith('http')]
+                
+            else:
+                if not links:
+                    return (count, 'word_count')
+                continue
         else:
-            pass
+            if not links:
+                return (count, 'status_code')
+            continue
+            
 
-#print(crawl('https://g1.globo.com/politica/noticia/2023/04/10/lula-100-dias-colunistas.ghtml'))
+    return (count, 'ok')
+
+url = 'https://www.cnnbrasil.com.br/economia/alckmin-vai-presidir-conselhao-da-industria-para-impulsionar-setor/'
+print(crawl(url))

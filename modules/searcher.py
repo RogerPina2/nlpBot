@@ -37,4 +37,4 @@ def query(query):
     
     return result
 
-#print(query('colher frutos'))
+print(query('tendão'))

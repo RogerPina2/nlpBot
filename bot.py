@@ -4,6 +4,7 @@ import re
 import discord
 from dotenv import load_dotenv
 
+from modules import *
 from modules.variables import *
 from modules.api.catAPI.images import get_random_image
 
@@ -96,8 +97,9 @@ async def on_message(message):
                 result = re.match(regex_url, param)
 
                 if result:
-                    
-                    await message.channel.send(result) 
+                    res = crawller.crawl(param)
+                    await message.channel.send(f'{res[0]} novos sites adicionados.') 
+                
                 else:
                     await message.channel.send(run_wrong_param)
                 
@@ -111,16 +113,20 @@ async def on_message(message):
             if len(message_words) == 1:
                 await message.channel.send(run_missing_argument) 
             
-            elif len(message_words) == 2:
-                # param = message_words[1]
-                # regex_url = r"(https?://[^\s]+)"
-                # result = re.match(regex_url, param)
-
-                #em que o usuário busca por um termo ou conceito. 
-                # A resposta deve ser buscada usando um índice invertido.
-                pass
             else:
-                await message.channel.send('Essa função aceita apenas um parâmetro')
+                param = message_words[1]
+                regex_url = r"\b\w+\b"
+                result = re.match(regex_url, param)
+
+                if result:
+                    res = searcher.query(param)
+
+                    if res:
+                        await message.channel.send(res) 
+                    else:
+                        await message.channel.send('Query não encontrada.') 
+                else:
+                    await message.channel.send(run_wrong_param)
 
         # Wn_search
         elif message.content.startswith('!search'):

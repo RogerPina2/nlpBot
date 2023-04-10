@@ -1,1 +1,1 @@
-from . import crawller, searcher, functions, variables
+from . import crawller, searcher, functions, variables, wn_searcher
