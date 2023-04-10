@@ -1,12 +1,12 @@
 import csv
 import requests
 import numpy as np
+
 from bs4 import BeautifulSoup
 from langdetect import detect
 
+from variables import *
 from functions import create_inverse_index_dictionary
-
-DATABASE_PATH = './data/database.csv'
 
 def add_to_csv(url, text):
 

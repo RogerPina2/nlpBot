@@ -1,3 +1,6 @@
+INVERSE_INDEX_DB = './data/inverse_index_db.json'
+DATABASE_PATH = './data/database.csv'
+
 help_message = """
 Command list:
 - !oi

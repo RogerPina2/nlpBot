@@ -4,7 +4,7 @@ import re
 import discord
 from dotenv import load_dotenv
 
-from modules.messages import *
+from modules.variables import *
 from modules.api.catAPI.images import get_random_image
 
 load_dotenv()

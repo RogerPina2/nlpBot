@@ -1,1 +1,1 @@
-from . import crawller, searcher, functions, messages
+from . import crawller, searcher, functions, variables

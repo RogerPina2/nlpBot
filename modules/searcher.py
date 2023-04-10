@@ -1,7 +1,6 @@
 import json
 
-DATABASE_PATH = './data/database.csv'
-INVERSE_INDEX_DB = './data/inverse_index_db.json'
+from variables import *
 
 def buscar(palavras, indice):
     assert type(palavras)==list

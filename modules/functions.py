@@ -3,7 +3,7 @@ import json
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-INVERSE_INDEX_DB = './data/inverse_index_db.json'
+from variables import *
 
 def create_inverse_index_dictionary(url, text):
     vectorizer = TfidfVectorizer()
