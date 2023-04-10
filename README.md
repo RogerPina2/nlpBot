@@ -22,7 +22,7 @@ Um resumo feito pelo próprio chatGPT:
 
 - Criar um chatbot com NLP (Natural Language Processing) pode melhorar a experiência do usuário em diversos setores, oferecendo atendimento ao cliente personalizado e eficiente, além de automatizar tarefas repetitivas. Além disso, chatbots com NLP podem coletar dados e insights valiosos sobre o comportamento do usuário, mas requerem conhecimento técnico especializado em inteligência artificial, linguística e desenvolvimento de software.
 
-A conversa inteira pode ser lida [aqui](chat_with_chatGPT.md)
+A conversa inteira pode ser lida [aqui](docs/chat_with_chatGPT.md)
 
 Quanto ao uso do discord, é uma plataforma com chat que os alunos possuem grande proximidade e possui uma estrutura fácil de ser substituída para utilizar o bot em outras plataformas como o Twitter.  
 
@@ -61,8 +61,8 @@ Deve ficar assim:
 ## Ensaios
 
 Em cada ensaio explico como foi o processo de fazer o chatbot entre as entregas da APS;
-- [Ensaio 0](data/ensaios/ensaio_0.md)
-- [Ensaio_1](data/ensaios/ensaio_1.md)
+- [Ensaio 0](docs/ensaios/ensaio_0.md)
+- [Ensaio_1](docs/ensaios/ensaio_1.md)
 <!-- - [Ensaio_2](data/ensaios/ensaio_2.md) 
 > - [Ensaio_3](data/ensaios/ensaio_3.md)
 > - [Ensaio_4](data/ensaios/ensaio_4.md)

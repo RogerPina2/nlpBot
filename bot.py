@@ -1,12 +1,11 @@
-#pythonCopy code
 import os
 import re
 
 import discord
 from dotenv import load_dotenv
 
-from data.messages import *
-from api.catAPI.images import get_random_image
+from modules.messages import *
+from modules.api.catAPI.images import get_random_image
 
 load_dotenv()
 
