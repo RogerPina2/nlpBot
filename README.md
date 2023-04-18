@@ -63,7 +63,7 @@ Deve ficar assim:
 Em cada ensaio explico como foi o processo de fazer o chatbot entre as entregas da APS;
 - [Ensaio 0](docs/ensaios/ensaio_0.md)
 - [Ensaio_1](docs/ensaios/ensaio_1.md)
-- [Ensaio_2](data/ensaios/ensaio_2.md) 
+- [Ensaio_2](docs/ensaios/ensaio_2.md) 
 <!-- 
 > - [Ensaio_3](data/ensaios/ensaio_3.md)
 > - [Ensaio_4](data/ensaios/ensaio_4.md)
