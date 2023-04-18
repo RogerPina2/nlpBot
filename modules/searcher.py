@@ -1,6 +1,6 @@
 import json
 
-from .variables import INVERSE_INDEX_DB, DATABASE_PATH
+from variables import INVERSE_INDEX_DB, DATABASE_PATH
 
 def buscar(palavras, indice):
     assert type(palavras)==list
@@ -35,6 +35,6 @@ def query(query):
 
     result = n_relevantes_query(query, indice, n=5)
     
-    return result
+    return sorted(result, key=lambda x: x[1], reverse=True)[0]
 
-#print(query('tendão'))
+#print(query('junto'))

@@ -119,10 +119,10 @@ async def on_message(message):
                 result = re.match(regex_url, param)
 
                 if result:
-                    res = searcher.query(param)
+                    url = searcher.query(param)[0]
 
-                    if res:
-                        await message.channel.send(res) 
+                    if url:
+                        await message.channel.send(url) 
                     else:
                         await message.channel.send('Query não encontrada.') 
                 else:
