@@ -4,8 +4,7 @@ import re
 import discord
 from dotenv import load_dotenv
 
-from modules import crawller
-from modules import searcher
+from modules import crawller, searcher, wn_searcher
 from modules.variables import *
 from modules.api.catAPI.images import get_random_image
 
@@ -137,14 +136,16 @@ async def on_message(message):
                 await message.channel.send(run_missing_argument) 
             
             elif len(message_words) == 2:
-                # param = message_words[1]
-                # regex_url = r"(https?://[^\s]+)"
-                # result = re.match(regex_url, param)
+                param = message_words[1]
+                regex_url = r"[A-Za-z0-9]\w*|[^\w\s]"
+                result = re.match(regex_url, param)
 
-                # em que faz uma busca por todos os documentos armazenados, 
-                # usando um índice de semelhança ligado à Wordnet, isto é, 
-                # o sistema pode buscar por termos semelhantes.
-                pass
+                best_word, url = wn_searcher.wn_search(result)
+
+                if best_word is not None:
+                    await message.channel.send(f'A melhor palavra encontrada foi: {best_word} e o link recomendado é: {url}')
+                else:
+                    await message.channel.send('Não foi encontrado palavra semelhante no dataset.')    
             else:
                 await message.channel.send('Essa função aceita apenas um parâmetro')
 
