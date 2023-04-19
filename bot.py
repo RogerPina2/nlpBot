@@ -114,7 +114,7 @@ async def on_message(message):
                 await message.channel.send(run_missing_argument) 
             
             else:
-                param = message_words[1:]
+                param = ' '.join(message_words[1:])
                 regex_url = r"\b\w+\b"
                 result = re.match(regex_url, param)
 
