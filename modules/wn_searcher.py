@@ -2,7 +2,7 @@ import json
 
 from nltk.corpus import wordnet
 
-from variables import *
+from .variables import *
 
 def wn_search(query_word):
     indice = dict()
