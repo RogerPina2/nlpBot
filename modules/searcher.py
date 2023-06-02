@@ -1,5 +1,5 @@
 import json
-
+import pandas as pd
 from .variables import INVERSE_INDEX_DB, DATABASE_PATH
 
 def buscar(palavras, indice):
@@ -28,13 +28,23 @@ def n_relevantes_query(query, indice, n=2):
     rel = n_relevantes(busca, n)
     return rel
 
-def query(query):
+def query(query, th=0):
+
     indice = dict()
     with open(INVERSE_INDEX_DB, encoding='utf-8') as file:
         indice = json.load(file)
 
     result = n_relevantes_query(query, indice, n=5)
     
-    return sorted(result, key=lambda x: x[1], reverse=True)[0]
+    res = sorted(result, key=lambda x: x[1], reverse=True)
+    
+    df = pd.read_csv('./data/database.csv')
+    
+    for r in res:
+        _score = df[df['url'] == r[0]]['sentiment'].values[0]
+        if _score >= th:
+            return r
+
+    return (False, False)
 
 #print(query('junto'))

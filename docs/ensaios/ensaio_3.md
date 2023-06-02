@@ -1,0 +1,3 @@
+Fiquei bem travado no classificador porque não sabia qual dataset usar. Quando me disseram que podia usar o do Hugging Face todo processo foi mais simples.
+
+O meu dataset possui agora 3 colunas, (url, content, sentiment). O searcher usa o índice invertido para encontrar as pages mas depois precisa filtrar os dados usando o dataset criado pelo crawler. Não gostei desse formato mas vou manter para dar continuidade na APS.
