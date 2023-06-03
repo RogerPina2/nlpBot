@@ -4,7 +4,7 @@ import re
 import discord
 from dotenv import load_dotenv
 
-from modules import crawler, searcher, wn_searcher
+from modules import crawler, searcher, wn_searcher, gerador
 from modules.variables import *
 from modules.api.catAPI.images import get_random_image
 
@@ -151,7 +151,7 @@ async def on_message(message):
                 param = message_words[1]
                 regex_url = r"[A-Za-z0-9]\w*|[^\w\s]"
                 result = re.match(regex_url, param)
-
+            
                 best_word, url = wn_searcher.wn_search(result.lower())
 
                 if best_word is not None:
@@ -160,6 +160,30 @@ async def on_message(message):
                     await message.channel.send('Não foi encontrado palavra semelhante no dataset.')    
             else:
                 await message.channel.send('Essa função aceita apenas um parâmetro')
+        
+        # Generate
+        elif message.content.startswith('!generate'):
+            message_words = message.content.split(' ')
+            
+            if len(message_words) == 1:
+                await message.channel.send(run_missing_argument) 
+            
+            else:
+                param = ' '.join(message_words[1:])
+                regex_url = r"[A-Za-z0-9]\w*|[^\w\s]"
+                result = re.match(regex_url, param)
+                
+                if result:
+                    await message.channel.send('Gerando...')
+                    phrase = gerador.gen(param.lower(), max_len=20)
+                
+                    if phrase:
+                        await message.channel.send(phrase) 
+                    else:
+                        await message.channel.send('Query não encontrada.')
+
+                else:
+                    await message.channel.send(run_wrong_param)
 
     else:
         if message.content.lower() == '!oi':
