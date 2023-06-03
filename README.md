@@ -64,8 +64,8 @@ Em cada ensaio explico como foi o processo de fazer o chatbot entre as entregas 
 - [Ensaio 0](docs/ensaios/ensaio_0.md)
 - [Ensaio_1](docs/ensaios/ensaio_1.md)
 - [Ensaio_2](docs/ensaios/ensaio_2.md) 
-- [Ensaio_3](data/ensaios/ensaio_3.md)
-- [Ensaio_4](data/ensaios/ensaio_4.md)
+- [Ensaio_3](docs/ensaios/ensaio_3.md)
+- [Ensaio_4](docs/ensaios/ensaio_4.md)
 <!--
-> - [Ensaio_5](data/ensaios/ensaio_5.md)
+> - [Ensaio_5](docs/ensaios/ensaio_5.md)
 -->
