@@ -1,6 +1,6 @@
 import os
 import re
-
+import openai
 import discord
 from dotenv import load_dotenv
 
@@ -14,6 +14,10 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = discord.Client(intents=intents)
+
+# openai.organization = "Insper"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.Model.list()
 
 @client.event
 async def on_ready():
@@ -179,6 +183,36 @@ async def on_message(message):
                 
                     if phrase:
                         await message.channel.send(phrase) 
+                    else:
+                        await message.channel.send('Query não encontrada.')
+
+                else:
+                    await message.channel.send(run_wrong_param)
+
+        elif message.content.startswith('!gpt'):
+            message_words = message.content.split(' ')
+            
+            if len(message_words) == 1:
+                await message.channel.send(run_missing_argument) 
+            
+            else:
+                param = ' '.join(message_words[1:])
+                regex_url = r"[A-Za-z0-9]\w*|[^\w\s]"
+                result = re.match(regex_url, param)
+
+                res = openai.Completion.create(
+                    engine='davinci', 
+                    prompt= 'Generate an informational text with the following words. The text must make sense and be in a single sentence in the same language as the initial words.'+ 'O presidente lula',
+                    temperature = 0,
+                    max_tokens=50
+                )
+
+                if result:
+                    await message.channel.send('Gerando...')
+                
+                    if res:
+                        phrase = res['choices'][0].text.strip()
+                        await message.channel.send(param + ' ' + phrase) 
                     else:
                         await message.channel.send('Query não encontrada.')
 

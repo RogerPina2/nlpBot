@@ -1,0 +1,1 @@
+Foi tranquilo essa parte, só fiquei com receio de ser cobrado pelo uso do GPT e "impressionado" pela diferença da frase criada em comparação com o meu gerador. 
